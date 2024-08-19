@@ -22,8 +22,6 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ThirdScreen(navigateToFirstScreen:()->Unit)//this composable now takes in a lambda function to handle navigating to another screen
 {
-    val name = remember { mutableStateOf("") }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
