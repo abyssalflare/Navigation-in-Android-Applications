@@ -68,9 +68,19 @@ fun MyApp()
             }
         }
         composable(route = "secondscreen"){
-            SecondScreen {
+            SecondScreen ({
+                navController.navigate("firstscreen")
+            },
+            {
+                navController.navigate("thirdscreen")
+            })
+        }
+        composable(route = "thirdscreen")
+        {
+            ThirdScreen {
                 navController.navigate("firstscreen")
             }
         }
+
     }
 }
