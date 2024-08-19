@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SecondScreen()
+fun SecondScreen(navigateToFirstScreen:()->Unit)//this composable now takes in a lambda function to handle navigating to another screen
 {
     val name = remember { mutableStateOf("") }
 
@@ -33,7 +33,7 @@ fun SecondScreen()
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Welcome", fontSize = 24.sp)
         Button(onClick = {
-
+            navigateToFirstScreen()
         }) {
             Text(text = "Go to First Screen")
         }
@@ -44,5 +44,5 @@ fun SecondScreen()
 @Composable
 fun SecondPreview()
 {
-    SecondScreen()
+    SecondScreen({})
 }

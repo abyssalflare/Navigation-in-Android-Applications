@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FirstScreen()
+fun FirstScreen(navigationToSecondScreen:()->Unit)//this composable now takes in a lambda function to handle navigating to another screen
 {
     val name = remember { mutableStateOf("") }
 
@@ -34,7 +34,8 @@ fun FirstScreen()
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = name.value, onValueChange = {name.value = it})
         Button(onClick = {
-
+            //call the lambda function passed in which handles navigating to the second screen
+            navigationToSecondScreen()
         }) {
             Text(text = "Go to Second Screen")
         }
@@ -45,5 +46,5 @@ fun FirstScreen()
 @Composable
 fun FirstPreview()
 {
-    FirstScreen()
+    FirstScreen({})
 }
